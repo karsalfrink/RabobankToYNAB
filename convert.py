@@ -22,7 +22,7 @@ for row in reader:
 
   # Check if the transaction is Debit (outflow) or Credit (inflow)
   if amount < 0:
-    outflow = amount
+    outflow = -1*amount
     inflow = '0'
   elif amount > 0:
     outflow = '0'
