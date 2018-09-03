@@ -8,7 +8,7 @@ Inspired by [Automate the Boring Stuff with Python](https://automatetheboringstu
 
 1. Export statements as CSV from Rabobank online banking website
 2. Place exported file in same directory as `convert.py` script
-3. Make sure exported statement is named 'transactions.txt'
+3. Make sure exported statement is named 'transactions.csv'
 4. Run `python convert.py`
 5. Converted statements should appear in same directory, named 'transactionsConverted.csv'
 6. Import converted statements into YNAB
