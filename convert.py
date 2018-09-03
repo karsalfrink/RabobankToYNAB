@@ -10,13 +10,11 @@ writer = csv.writer(transactionsConverted)
 writer.writerow(['Date','Payee','Category','Memo','Outflow','Inflow'])
 
 reader.next()
+
 for row in reader:
-	category = ''
-
-
-	writer.writerow([date, payee, category, memo, outflow, inflow])
   date = time.strftime('%d/%m/%Y', time.strptime(row[4], '%Y-%m-%d')) # DD/MM/YYYY
   payee = row[9]
+  category = ''
   memo = row[19]
   amount = row[6]
   amount = amount.replace(',','.')
@@ -29,4 +27,7 @@ for row in reader:
   elif amount > 0:
     outflow = '0'
     inflow = amount
+
+  writer.writerow([date, payee, category, memo, outflow, inflow])
+
 transactionsConverted.close()
