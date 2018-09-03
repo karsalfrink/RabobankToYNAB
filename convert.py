@@ -25,5 +25,8 @@ for row in reader:
   date = time.strftime('%d/%m/%Y', time.strptime(row[4], '%Y-%m-%d')) # DD/MM/YYYY
   payee = row[9]
   memo = row[19]
+  amount = row[6]
+  amount = amount.replace(',','.')
+  amount = float(amount)
 
 transactionsConverted.close()
