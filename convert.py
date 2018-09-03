@@ -13,13 +13,6 @@ reader.next()
 for row in reader:
 	category = ''
 
-	# Check if the transaction is Debit (outflow) or Credit (inflow)
-	if row[3] == 'D':
-		outflow = row[4]
-		inflow = '0'
-	elif row[3] == 'C':
-		outflow = '0'
-		inflow = row[4]
 
 	writer.writerow([date, payee, category, memo, outflow, inflow])
   date = time.strftime('%d/%m/%Y', time.strptime(row[4], '%Y-%m-%d')) # DD/MM/YYYY
@@ -29,4 +22,11 @@ for row in reader:
   amount = amount.replace(',','.')
   amount = float(amount)
 
+  # Check if the transaction is Debit (outflow) or Credit (inflow)
+  if amount < 0:
+    outflow = amount
+    inflow = '0'
+  elif amount > 0:
+    outflow = '0'
+    inflow = amount
 transactionsConverted.close()
