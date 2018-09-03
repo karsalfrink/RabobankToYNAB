@@ -9,6 +9,7 @@ writer = csv.writer(transactionsConverted)
 # Write header row
 writer.writerow(['Date','Payee','Category','Memo','Outflow','Inflow'])
 
+reader.next()
 for row in reader:
 	date = time.strftime('%d/%m/%Y', time.strptime(row[2], '%Y%m%d')) # DD/MM/YYYY
 	payee = row[6]
