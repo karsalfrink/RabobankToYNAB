@@ -12,7 +12,6 @@ writer.writerow(['Date','Payee','Category','Memo','Outflow','Inflow'])
 reader.next()
 for row in reader:
 	category = ''
-	memo = row[10]
 
 	# Check if the transaction is Debit (outflow) or Credit (inflow)
 	if row[3] == 'D':
@@ -25,5 +24,6 @@ for row in reader:
 	writer.writerow([date, payee, category, memo, outflow, inflow])
   date = time.strftime('%d/%m/%Y', time.strptime(row[4], '%Y-%m-%d')) # DD/MM/YYYY
   payee = row[9]
+  memo = row[19]
 
 transactionsConverted.close()
