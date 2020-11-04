@@ -1,6 +1,6 @@
 import csv, time
 
-transactions = open('transactions.csv')
+transactions = open('transactions.csv', encoding = "ISO-8859-1")
 reader = csv.reader(transactions)
 
 transactionsConverted = open('transactionsConverted.csv', 'w')
